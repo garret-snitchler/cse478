@@ -19,7 +19,7 @@ def load_dataset(name):
         wine_quality = fetch_ucirepo(id=186)
         X = wine_quality.data.features.values 
         y = wine_quality.data.targets.values
-        y = np.where(y >= 6, 1, 0) # splits into good or bad , 6+ meaning good
+        y = np.where(y >= 6, 1, 0) # splits into good or bad 1, 0 , 6+ meaning good
     else:
         raise ValueError(f"Dataset '{name}' is not supported.")
     
@@ -32,8 +32,8 @@ def load_dataset(name):
 def evaluate_model(model, X, y, n_splits=5):
     skf = StratifiedKFold(n_splits=n_splits, shuffle=True, random_state=42)
     all_scores = []
-    y_true = []
-    y_pred = []
+    y_all_true = []
+    y_all_pred = []
 
     for train_index, test_index in skf.split(X, y):
         X_train, X_test = X[train_index], X[test_index]
@@ -43,8 +43,8 @@ def evaluate_model(model, X, y, n_splits=5):
         y_pred = model.predict(X_test)
 
         all_scores.append(model.score(X_test, y_test))
-        y_true.extend(y_test)
-        y_pred.extend(y_pred)
+        y_all_true.extend(y_test)
+        y_all_pred.extend(y_pred)
     
-    conf_matrix = confusion_matrix(y_true, y_pred, normalize='true')
-    return np.array(all_scores), conf_matrix
+    cm = confusion_matrix(y_all_true, y_all_pred, normalize='true')
+    return np.array(all_scores), cm
