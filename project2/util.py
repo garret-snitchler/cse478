@@ -25,11 +25,13 @@ def load_preprocess_data(val_split=0.1):
 
 def plot_history(history, title=''):
     plt.figure(figsize=(8,5))
-    plt.plot(history.history['accuracy'], label='train acc')
-    plt.plot(history.history['val_accuracy'], label='val acc')
-    plt.title(f'Accuracy {title}')
+    # plt.plot(history.history['accuracy'], label='train acc')
+    # plt.plot(history.history['val_accuracy'], label='val acc')
+    plt.plot(history.history['sparse_top_5_categorical_accuracy'], label='train top 5 acc')
+    plt.plot(history.history['val_sparse_top_5_categorical_accuracy'], label='val top 5 acc')
+    plt.title(f'Top 5 Accuracy {title}')
     plt.xlabel('Epochs')
-    plt.ylabel('Accuracy')
+    plt.ylabel('Top 5 Accuracy')
     plt.legend()
     plt.show()
 
