@@ -14,7 +14,7 @@ def create_model_one(input_shape=(32,32,3), num_classes=100):
     model.add(layers.Dropout(0.5))
     model.add(layers.Dense(num_classes, activation='softmax'))
     
-    print("model built")
+    #print("model built")
     return model
 
 def build_model_two(input_shape=(32,32,3), num_classes=100):
@@ -32,18 +32,18 @@ def build_model_two(input_shape=(32,32,3), num_classes=100):
     model.add(layers.Dropout(0.5))
     model.add(layers.Dense(num_classes, activation='softmax'))
 
-    print("model built")
+    #print("model built")
 
     return model
 
-num_classes = 100
-input_shape = (32, 32, 3)
 
-print("Testing build_model_1:")
-model1 = create_model_one(input_shape=input_shape, num_classes=num_classes)
+#num_classes = 100
+#input_shape = (32, 32, 3)
+
+#print("Testing build_model_1:")
+#model1 = create_model_one(input_shape=input_shape, num_classes=num_classes)
 
 
-print("\nTesting build_model_2:")
-model2 = build_model_two(input_shape=input_shape, num_classes=num_classes)
-
+#print("\nTesting build_model_2:")
+#model2 = build_model_two(input_shape=input_shape, num_classes=num_classes)
 

@@ -52,8 +52,8 @@ def plot_conf_matrix(y_true, y_pred, classes):
 
 
 
-print("\nTesting load_and_preprocess_data:")
-(train_x, train_y), (val_x, val_y), (test_x, test_y) = load_preprocess_data()
-print(f"Train shape: {train_x.shape}, Labels: {train_y.shape}")
-print(f"Val shape: {val_x.shape}, Labels: {val_y.shape}")
-print(f"Test shape: {test_x.shape}, Labels: {test_y.shape}")
+#print("\nTesting load_and_preprocess_data:")
+#(train_x, train_y), (val_x, val_y), (test_x, test_y) = load_preprocess_data()
+#print(f"Train shape: {train_x.shape}, Labels: {train_y.shape}")
+#print(f"Val shape: {val_x.shape}, Labels: {val_y.shape}")
+#print(f"Test shape: {test_x.shape}, Labels: {test_y.shape}")
