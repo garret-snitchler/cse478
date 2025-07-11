@@ -41,6 +41,10 @@ print("\nEvaluating best models")
 test_loss, test_acc = model1.evaluate(test_x, test_y)
 print(f"Test accuracy: {test_acc:.4f}")
 
+print("\nMaking predictions / plotting confusion matrix")
+y_pred = np.argmax(model1.predict(test_x), axis=1)
+plot_conf_matrix(test_y, y_pred, class_names)
+
 #second model adam
 
 print("\nTraining model2 with adam \n")
